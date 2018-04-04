@@ -7,7 +7,7 @@
  *
  * Released under the MIT License
  *
- * Released on: April 1, 2018
+ * Released on: April 4, 2018
  */
 
 (function (global, factory) {
@@ -2718,19 +2718,6 @@
     render: function render(c) {
       var self = this;
 
-      var listChildren = [];
-      var ulChildren = [];
-
-      if (self.$slots.default) {
-        for (var i = 0; i < self.$slots.default.length; i += 1) {
-          var tag = self.$slots.default[i].tag;
-          if (tag && !(tag === 'li' || tag.indexOf('list-item') >= 0 || tag.indexOf('list-button') >= 0)) {
-            listChildren.push(self.$slots.default[i]);
-          } else if (tag) {
-            ulChildren.push(self.$slots.default[i]);
-          }
-        }
-      }
       var blockEl = c(
         self.form ? 'form' : 'div',
         {
@@ -2769,7 +2756,7 @@
           },
         },
         [
-          ulChildren.length > 0 ? [c('ul', {}, ulChildren), listChildren] : listChildren ]
+          c('ul', {}, this.$slots.default) ]
       );
       return blockEl;
     },

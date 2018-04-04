@@ -90,6 +90,7 @@ import TimelineHorizontal from './pages/timeline-horizontal.vue';
 import TimelineHorizontalCalendar from './pages/timeline-horizontal-calendar.vue';
 import VirtualList from './pages/virtual-list.vue';
 import ColorThemes from './pages/color-themes.vue';
+import ListTests from './pages/list-tests.vue';
 
 // Pages
 export default [
@@ -97,6 +98,11 @@ export default [
   {
     path: '/',
     component: Home,
+  },
+  // List tests page
+  {
+    path: '/list-tests/',
+    component: ListTests,
   },
   // About page
   {

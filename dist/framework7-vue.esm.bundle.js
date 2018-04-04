@@ -7,7 +7,7 @@
  *
  * Released under the MIT License
  *
- * Released on: April 1, 2018
+ * Released on: April 4, 2018
  */
 
 const Utils = {
@@ -2706,19 +2706,6 @@ var f7List = {
   render(c) {
     const self = this;
 
-    const listChildren = [];
-    const ulChildren = [];
-
-    if (self.$slots.default) {
-      for (let i = 0; i < self.$slots.default.length; i += 1) {
-        const tag = self.$slots.default[i].tag;
-        if (tag && !(tag === 'li' || tag.indexOf('list-item') >= 0 || tag.indexOf('list-button') >= 0)) {
-          listChildren.push(self.$slots.default[i]);
-        } else if (tag) {
-          ulChildren.push(self.$slots.default[i]);
-        }
-      }
-    }
     const blockEl = c(
       self.form ? 'form' : 'div',
       {
@@ -2757,7 +2744,7 @@ var f7List = {
         },
       },
       [
-        ulChildren.length > 0 ? [c('ul', {}, ulChildren), listChildren] : listChildren,
+        c('ul', {}, this.$slots.default),
       ]
     );
     return blockEl;
